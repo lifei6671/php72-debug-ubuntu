@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 MAINTAINER Minho <longfei6671@163.com>
 
-RUN apt-get update && apt-get install -y  g++  \
+RUN apt-get update && apt-get install -y  --no-install-recommends  g++  \
 	libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y  g++  \
     libreadline6-dev \
     bison \
     ibtidy-dev  \
-	--no-install-recommends && rm -r /var/lib/apt/lists/*
+	rm -r /var/lib/apt/lists/*
 
 ENV PHP_INI_DIR /usr/local/etc/php
 RUN mkdir -p $PHP_INI_DIR/conf.d
